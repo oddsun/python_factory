@@ -10,7 +10,7 @@ class Feature(ABC):
     def __init_subclass__(cls, feature_type: str, **kwargs):
         """
         identical to the registry part of traditional factory,
-        EXCEPT it simplifies the process and auto-registers all subclasses, very much in line with DRY
+        EXCEPT it simplifies the process and auto-registers all subclasses, very much inline with DRY
         """
         super().__init_subclass__(**kwargs)
         cls._registry[feature_type] = cls
