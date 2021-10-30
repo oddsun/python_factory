@@ -7,7 +7,7 @@ class Feature(ABC):
     """ An ABC and traditional Factory rolled into one """
     _registry = {}
 
-    def __init_subclass__(cls, feature_type: str, **kwargs):
+    def __init_subclass__(cls, /, feature_type: str, **kwargs):
         """
         identical to the registry part of traditional factory,
         EXCEPT it simplifies the process and auto-registers all subclasses, very much inline with DRY
@@ -59,3 +59,6 @@ class FeatureB(Feature, feature_type='B'):
 if __name__ == '__main__':
     Feature(feature_type='A', some_other_config='hello world A').print()
     Feature(feature_type='B', some_other_config='hello world B').print()
+    from factory_separate.factory_separate_a import A
+
+    A('b').print()
